@@ -37,14 +37,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 butd.setText(itemTalon[which]);
             }
         });//나중에 null에 이벤트 삽입 가능->버튼이 클릭됬을때 변경*/
-        //라디오 버튼 목록
-        dialog.setSingleChoiceItems(itemTalon,0,new DialogInterface.OnClickListener() {
+       /* 라디오 버튼 목록
+       dialog.setSingleChoiceItems(itemTalon,0,new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 butd.setText(itemTalon[which]);
             }
+        });*/
+        //dialog.setPositiveButton("OK", null);
+        //체크박스 목록
+        //선택여부 배열
+        boolean[] checkeditems={false,false,false};
+        dialog.setMultiChoiceItems(itemTalon, checkeditems, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                if(isChecked)
+                    butd.setText(itemTalon[which]);
+            }
         });
-        dialog.setPositiveButton("OK", null);
+
+
         dialog.show();
     }
 
