@@ -25,13 +25,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dialog.setTitle("탈론 맴버들");
         dialog.setIcon(R.drawable.reaper);//dialog.setIcon(R.mimap.ic_launcher);는 안드로이드 캐릭터 아이콘이다.
        // dialog.setMessage("여기는 메세지를 쓸 수 있습니다.");
-        dialog.setItems(itemTalon, new DialogInterface.OnClickListener() {
+        /*dialog.setItems(itemTalon, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 butd.setText(itemTalon[which]);
             }
         });//목록을 눌렀을때 변경
-        dialog.setPositiveButton("OK",null);//나중에 null에 이벤트 삽입 가능->버튼이 클릭됬을때 변경
+        /*new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                butd.setText(itemTalon[which]);
+            }
+        });//나중에 null에 이벤트 삽입 가능->버튼이 클릭됬을때 변경*/
+        //라디오 버튼 목록
+        dialog.setSingleChoiceItems(itemTalon,0,new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                butd.setText(itemTalon[which]);
+            }
+        });
+        dialog.setPositiveButton("OK", null);
         dialog.show();
     }
 
